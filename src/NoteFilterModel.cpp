@@ -1,4 +1,4 @@
-#include <NoteFilterModel.h>
+#include "NoteFilterModel.h"
 NoteFilterModel::NoteFilterModel(QObject *parent) : QSortFilterProxyModel(parent),
     m_condition(NoteFilterModel::Todo)
 {}

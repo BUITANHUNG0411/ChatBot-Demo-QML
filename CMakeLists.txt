@@ -39,6 +39,7 @@ qt_add_qml_module(appChatBotDemo
         qml/Note.qml
         qml/Cluster/Cluster.qml
         qml/Cluster/Watch.qml
+        qml/Cluster/PWM_Control.qml
     RESOURCES
         assets/rubbish.png
         assets/chat.svg

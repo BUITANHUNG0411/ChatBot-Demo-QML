@@ -1,12 +1,13 @@
 import QtQuick
 import QtQuick.Controls
+import ChatBotDemo
 
 Rectangle {
-    color: chatBackend.isDarkMode ? "#0f172a" : "#ffffff"
+    color: Theme_Color.background
     Text {
         anchors.centerIn: parent
         text: "Contact View"
         font.pixelSize: 24
-        color: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+        color: Theme_Color.primaryText
     }
 }

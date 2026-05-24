@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import ChatBotDemo
 
 Item {
     id: chatViewRoot
@@ -12,7 +13,7 @@ Item {
         Rectangle {
             Layout.preferredWidth: 250
             Layout.fillHeight: true
-            color: chatBackend.isDarkMode ? "#1e293b" : "#f1f5f9"
+            color: Theme_Color.surface
 
             ColumnLayout {
                 anchors.fill: parent
@@ -21,7 +22,7 @@ Item {
 
                 Label {
                     text: "AI Configuration"
-                    color: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                    color: Theme_Color.primaryText
                     font.bold: true
                     font.pixelSize: 16
                 }
@@ -29,8 +30,8 @@ Item {
                 ComboBox {
                     Layout.fillWidth: true
                     model: ["Gemini 2.5 Flash", "Gemini 1.5 Pro", "Gemini 1.0 Pro"]
-                    palette.text: chatBackend.isDarkMode ? "#ffffff" : "#000000"
-                    palette.buttonText: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                    palette.text: Theme_Color.primaryText
+                    palette.buttonText: Theme_Color.primaryText
                     onActivated: chatBackend.setModel(currentText)
                 }
 
@@ -38,12 +39,12 @@ Item {
                     checked: chatBackend.isDarkMode
                     text: checked ? "Dark mode" : "Light mode"
                     onToggled: chatBackend.isDarkMode = checked
-                    palette.windowText: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                    palette.windowText: Theme_Color.primaryText
                 }
 
                 Label {
                     text: "Temperature"
-                    color: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                    color: Theme_Color.primaryText
                 }
 
                 Slider {
@@ -56,14 +57,14 @@ Item {
                 Button {
                     text: "New Chat"
                     Layout.fillWidth: true
-                    palette.buttonText: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                    palette.buttonText: Theme_Color.primaryText
                     onClicked: chatBackend.clearChat()
                 }
 
                 Button {
                     text: "Export Log"
                     Layout.fillWidth: true
-                    palette.buttonText: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                    palette.buttonText: Theme_Color.primaryText
                     onClicked: chatBackend.exportLog()
                 }
 
@@ -74,7 +75,7 @@ Item {
         Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: chatBackend.isDarkMode ? "#0f172a" : "#ffffff"
+            color: Theme_Color.background
 
             ColumnLayout {
                 anchors.fill: parent
@@ -95,7 +96,9 @@ Item {
                             width: parent.width - 40
                             height: parent.height - 10
                             anchors.centerIn: parent
-                            color: model.author === "You" ? (chatBackend.isDarkMode ? "#3b82f6" : "#dbeafe") : (chatBackend.isDarkMode ? "#334155" : "#f1f5f9")
+                            color: model.author === "You"
+                                ? Theme_Color.accent
+                                : Theme_Color.surface
                             radius: 8
 
                             Text {
@@ -105,7 +108,7 @@ Item {
                                 anchors.centerIn: parent
                                 wrapMode: Text.Wrap
                                 font.pixelSize: 14
-                                color: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                                color: Theme_Color.primaryText
                             }
                         }
                     }
@@ -117,8 +120,8 @@ Item {
                 Rectangle {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 80
-                    color: chatBackend.isDarkMode ? "#1e293b" : "#f8fafc"
-                    border.color: chatBackend.isDarkMode ? "#334155" : "#cbd5e1"
+                    color: Theme_Color.surfaceElevated
+                    border.color: Theme_Color.borderSubtle
 
                     RowLayout {
                         anchors.fill: parent
@@ -130,7 +133,7 @@ Item {
                             Layout.fillWidth: true
                             placeholderText: "Type your message here..."
                             font.pixelSize: 14
-                            color: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                            color: Theme_Color.primaryText
                             onAccepted: sendButton.onClicked()
                         }
 
@@ -138,7 +141,7 @@ Item {
                             id: sendButton
                             text: "Send"
                             Layout.preferredHeight: 40
-                            palette.buttonText: chatBackend.isDarkMode ? "#ffffff" : "#000000"
+                            palette.buttonText: Theme_Color.primaryText
                             onClicked: {
                                 chatBackend.sendMessage(messageInput.text)
                                 messageInput.clear()

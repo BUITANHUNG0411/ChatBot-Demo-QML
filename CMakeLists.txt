@@ -22,10 +22,13 @@ qt_add_executable(appChatBotDemo
     src/NoteFilterModel.cpp
 )
 
+set_source_files_properties(qml/Theme_Color.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
+
 qt_add_qml_module(appChatBotDemo
     URI ChatBotDemo
     VERSION 1.0
     QML_FILES
+        qml/Theme_Color.qml
         qml/Main.qml
         qml/Home.qml
         qml/Chatbot.qml

@@ -6,7 +6,7 @@ A multi-view dashboard application using a central `StackLayout` for navigation.
 ## QML Structure
 - `Main.qml`: The root window. Contains a Left Sidebar (Iconic Navigation) and a central `StackLayout`.
 - `Home.qml`: The launcher view containing a Grid of available apps.
-- `Theme.qml`: A QML Singleton (`pragma Singleton`) that centralizes all color definitions. It strictly implements a unified **Green/Dark Green color palette** for the entire application to ensure UI consistency.
+- `Theme_Color.qml`: A QML Singleton (`pragma Singleton`) that centralizes all color definitions. It strictly implements a unified **Green/Dark Green color palette** for the entire application to ensure UI consistency.
 - `App Views`: `Chatbot.qml`, `Note.qml`, `Weather.qml`, etc.
 
 ## C++ Backend Bindings
@@ -22,6 +22,6 @@ The following singletons/context properties are currently available to QML:
 
 ## UI/UX Guidelines
 - **Theming & Color Palette:** The entire application MUST use a cohesive **Green tone** palette (e.g., emerald, forest green, mint). 
-- **No Inline Colors:** Do NOT use inline dark mode checks (e.g., `chatBackend.isDarkMode ? "#fff" : "#000"`). Instead, bind colors strictly to the `Theme` singleton properties (e.g., `color: Theme.background`).
-- **Theme Singleton Properties:** `Theme.qml` internally observes `chatBackend.isDarkMode` and switches its green-toned hex values accordingly. It exposes semantic properties such as `background`, `surface`, `primaryText`, `secondaryText`, `accent`, and `border`.
+- **No Inline Colors:** Do NOT use inline dark mode checks (e.g., `chatBackend.isDarkMode ? "#fff" : "#000"`). Instead, bind colors strictly to the `Theme_Color` singleton properties (e.g., `color: Theme_Color.background`).
+- **Theme Singleton Properties:** `Theme_Color.qml` internally observes `chatBackend.isDarkMode` and switches its green-toned hex values accordingly. It exposes semantic properties such as `background`, `surface`, `primaryText`, `secondaryText`, `accent`, `borderColor`, and view-specific variants like `surfaceElevated`, `accentMuted`, `danger`, `weatherGradTop`, etc.
 - **Styling:** Use semi-transparent rectangles (`Qt.rgba`) for glassmorphism effects, utilizing the base colors from `Theme`.

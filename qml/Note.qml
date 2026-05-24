@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import ChatBotDemo
 
 Rectangle {
     id: noteRoot
-    color: chatBackend.isDarkMode ? "#062016" : "#f0fdf4"
+    color: Theme_Color.background
 
     Item{
         id : status
@@ -26,7 +27,7 @@ Rectangle {
                 text: "My Notes"
                 font.pixelSize: 32
                 font.weight: Font.DemiBold
-                color: chatBackend.isDarkMode ? "#4ade80" : "#166534"
+                color: Theme_Color.accent
                 Layout.fillWidth: true
             }
 
@@ -39,8 +40,8 @@ Rectangle {
                     implicitWidth: 150
                     implicitHeight: 32
                     radius: 16
-                    color: chatBackend.isDarkMode ? "#14532d" : "#bbf7d0"
-                    border.color: chatBackend.isDarkMode ? "#4ade80" : "#22c55e"
+                    color: Theme_Color.surface
+                    border.color: Theme_Color.accent
                     border.width: 1
                 }
                 contentItem: Text {
@@ -49,7 +50,7 @@ Rectangle {
                         weight: addButton.font.weight
                         pixelSize: 14
                     }
-                    color: chatBackend.isDarkMode ? "#4ade80" : "#166534"
+                    color: Theme_Color.accent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -69,8 +70,8 @@ Rectangle {
                     implicitWidth: 150
                     implicitHeight: 32
                     radius: 16
-                    color: chatBackend.isDarkMode ? "#14532d" : "#bbf7d0"
-                    border.color: chatBackend.isDarkMode ? "#4ade80" : "#22c55e"
+                    color: Theme_Color.surface
+                    border.color: Theme_Color.accent
                     border.width: 1
                 }
                 contentItem: Row {
@@ -89,7 +90,7 @@ Rectangle {
                             weight: trashButton.font.weight
                             pixelSize: 14
                         }
-                        color: chatBackend.isDarkMode ? "#4ade80" : "#166534"
+                        color: Theme_Color.accent
                         verticalAlignment: Text.AlignVCenter
                         anchors.verticalCenter: parent.verticalCenter
                     }
@@ -113,8 +114,10 @@ Rectangle {
 
                 background: Rectangle {
                     radius: 16
-                    color: (filterCombo.pressed || filterCombo.hovered || filterCombo.down) ? (chatBackend.isDarkMode ? "#166534" : "#86efac") : (chatBackend.isDarkMode ? "#14532d" : "#bbf7d0")
-                    border.color: chatBackend.isDarkMode ? "#4ade80" : "#22c55e"
+                    color: (filterCombo.pressed || filterCombo.hovered || filterCombo.down)
+                        ? Theme_Color.surfaceElevated
+                        : Theme_Color.surface
+                    border.color: Theme_Color.accent
                     border.width: 1
 
                     Behavior on color {
@@ -122,15 +125,13 @@ Rectangle {
                     }
                 }
 
-
-
                 contentItem: Text {
                     text: filterCombo.currentText
                     font {
                         weight: filterCombo.font.weight
                         pixelSize: 14
                     }
-                    color: chatBackend.isDarkMode ? "#4ade80" : "#166534"
+                    color: Theme_Color.accent
                     verticalAlignment: Text.AlignVCenter
                     leftPadding: 15
                     rightPadding: 30
@@ -149,7 +150,7 @@ Rectangle {
                         context.lineTo(width, 0);
                         context.lineTo(width / 2, height);
                         context.closePath();
-                        context.fillStyle = chatBackend.isDarkMode ? "#4ade80" : "#166534"
+                        context.fillStyle = Theme_Color.accent
                         context.fill();
                     }
                 }
@@ -159,7 +160,7 @@ Rectangle {
                     height: 32
                     contentItem: Text {
                         text: modelData
-                        color: chatBackend.isDarkMode ? "#4ade80" : "#166534"
+                        color: Theme_Color.accent
                         font {
                             weight: filterCombo.font.weight
                             pixelSize: 13
@@ -168,7 +169,9 @@ Rectangle {
                         leftPadding: 15
                     }
                     background: Rectangle {
-                        color: (highlighted || index === filterCombo.currentIndex) ? (chatBackend.isDarkMode ? "#14532d" : "#bbf7d0") : (chatBackend.isDarkMode ? "#0f2f21" : "#ffffff")
+                        color: (highlighted || index === filterCombo.currentIndex)
+                            ? Theme_Color.surface
+                            : Theme_Color.surfaceElevated
                         Behavior on color { ColorAnimation { duration: 150 } }
                     }
                 }
@@ -188,8 +191,8 @@ Rectangle {
 
                     background: Rectangle {
                         radius: 12
-                        border.color: chatBackend.isDarkMode ? "#4ade80" : "#22c55e"
-                        color: chatBackend.isDarkMode ? "#0f2f21" : "#f0fdf4"
+                        border.color: Theme_Color.accent
+                        color: Theme_Color.surfaceElevated
                     }
                 }
             }
@@ -207,8 +210,8 @@ Rectangle {
                 width: notesListView.width
                 height: 80
                 radius: 12
-                color: chatBackend.isDarkMode ? "#0f2f21" : "#ffffff"
-                border.color: chatBackend.isDarkMode ? "#14532d" : "#d1fae5"
+                color: Theme_Color.surfaceElevated
+                border.color: Theme_Color.borderColor
                 border.width: 1
 
                 RowLayout {
@@ -220,7 +223,7 @@ Rectangle {
                         Layout.preferredWidth: 4
                         Layout.fillHeight: true
                         radius: 2
-                        color: model.status ? (chatBackend.isDarkMode ? "#14532d" : "#d1fae5") : "#22c55e"
+                        color: model.status ? Theme_Color.borderColor : Theme_Color.accent
 
                         Behavior on color {
                             ColorAnimation {
@@ -237,9 +240,9 @@ Rectangle {
                             Layout.fillWidth: true
                             text: model.content
                             placeholderText: "Type note here..."
-                            placeholderTextColor: chatBackend.isDarkMode ? "#30624a" : "#a7f3d0"
+                            placeholderTextColor: Theme_Color.secondaryText
                             font.pixelSize: 16
-                            color: model.status ? (chatBackend.isDarkMode ? "#30624a" : "#94a3b8") : (chatBackend.isDarkMode ? "#ecfdf5" : "#064e3b")
+                            color: model.status ? Theme_Color.secondaryText : Theme_Color.primaryText
                             font.strikeout: model.status
                             selectByMouse: true
                             background: null
@@ -248,7 +251,7 @@ Rectangle {
                         Label {
                             text: model.timeStamp
                             font.pixelSize: 11
-                            color: chatBackend.isDarkMode ? "#30624a" : "#6bc091"
+                            color: Theme_Color.secondaryText
                             Layout.leftMargin: 0
                         }
                     }
@@ -266,13 +269,15 @@ Rectangle {
                             implicitHeight: 24
                             radius: 6
                             color: "transparent"
-                            border.color: doneCheck.checked ? "#22c55e" : (chatBackend.isDarkMode ? "#30624a" : "#cbd5e1")
+                            border.color: doneCheck.checked
+                                ? Theme_Color.accent
+                                : Theme_Color.borderColor
                             border.width: 2
 
                             Text {
                                 text: "✔"
                                 font.pixelSize: 16
-                                color: "#22c55e"
+                                color: Theme_Color.accent
                                 anchors.centerIn: parent
                                 visible: doneCheck.checked
                             }
@@ -288,13 +293,13 @@ Rectangle {
 
                         background: Rectangle {
                             radius: 18
-                            color: removeButton.hovered ? (chatBackend.isDarkMode ? "#7f1d1d" : "#fee2e2") : "transparent"
+                            color: removeButton.hovered ? Theme_Color.dangerMuted : "transparent"
                         }
 
                         contentItem: Text {
                             text: removeButton.text
                             font.pixelSize: 18
-                            color: removeButton.hovered ? (chatBackend.isDarkMode ? "#fecaca" : "#ef4444") : (chatBackend.isDarkMode ? "#30624a" : "#6bc091")
+                            color: removeButton.hovered ? Theme_Color.danger : Theme_Color.secondaryText
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }

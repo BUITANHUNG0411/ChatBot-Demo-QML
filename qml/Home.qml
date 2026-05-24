@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import ChatBotDemo
 
 Rectangle {
     id: root
-    color: chatBackend.isDarkMode ? "#0f172a" : "#e2e8f0"
+    color: Theme_Color.background
 
     GridView {
         anchors.fill: parent
@@ -50,13 +51,9 @@ Rectangle {
             width: 260
             height: 200
             radius: 24
-            color: chatBackend.isDarkMode
-                ? Qt.rgba(30, 41, 59, 0.7)
-                : Qt.rgba(255, 255, 255, 0.55)
+            color: Theme_Color.surfaceElevated
             border.width: 1
-            border.color: chatBackend.isDarkMode
-                ? Qt.rgba(255, 255, 255, 0.08)
-                : Qt.rgba(255, 255, 255, 0.8)
+            border.color: Theme_Color.borderSubtle
             clip: true
 
             Rectangle {
@@ -68,9 +65,7 @@ Rectangle {
                 gradient: Gradient {
                     GradientStop {
                         position: 0.0
-                        color: chatBackend.isDarkMode
-                            ? Qt.rgba(255, 255, 255, 0.05)
-                            : Qt.rgba(255, 255, 255, 0.4)
+                        color: Theme_Color.surfaceOverlay
                     }
                     GradientStop {
                         position: 1.0
@@ -88,9 +83,7 @@ Rectangle {
                     width: 72
                     height: 72
                     radius: width / 2
-                    color: chatBackend.isDarkMode
-                        ? Qt.rgba(56, 189, 248, 0.15)
-                        : Qt.rgba(14, 165, 233, 0.12)
+                    color: Theme_Color.accentMuted
 
                     Image {
                         anchors.centerIn: parent
@@ -107,7 +100,7 @@ Rectangle {
                     text: title
                     font.pixelSize: 20
                     font.weight: Font.Medium
-                    color: chatBackend.isDarkMode ? "#f1f5f9" : "#1e293b"
+                    color: Theme_Color.primaryText
                 }
             }
 

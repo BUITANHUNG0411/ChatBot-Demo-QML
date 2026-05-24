@@ -1,12 +1,19 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import ChatBotDemo
 
 Rectangle {
     id: weatherRoot
     gradient: Gradient {
-        GradientStop { position: 0.0; color: "#00b4db" }
-        GradientStop { position: 1.0; color: "#0083b0" }
+        GradientStop {
+            position: 0.0
+            color: Theme_Color.weatherGradTop
+        }
+        GradientStop {
+            position: 1.0
+            color: Theme_Color.weatherGradBot
+        }
     }
 
     property string cityName : "--";
@@ -24,7 +31,7 @@ Rectangle {
             weatherRoot.temp = temp.toFixed(1) + "°C";
             weatherRoot.description = description;
             weatherRoot.humidity = humidity + "%";
-            weatherRoot.windSpeed = speed + "km/h";
+            weatherRoot.windSpeed = speed.toFixed(1) + " km/h";
             weatherRoot.icon = icon;
         }
     }
@@ -35,8 +42,8 @@ Rectangle {
         width: 400
         height: 550
         radius: 40
-        color: Qt.rgba(255, 255, 255, 0.15)
-        border.color: Qt.rgba(255, 255, 255, 0.3)
+        color: Theme_Color.glassSurface
+        border.color: Theme_Color.glassBorder
         border.width: 1
 
         ColumnLayout {
@@ -48,19 +55,17 @@ Rectangle {
                 text: weatherRoot.cityName
                 font.pixelSize: 34
                 font.weight: Font.Medium
-                color: "white"
+                color: Theme_Color.glassText
                 Layout.alignment: Qt.AlignHCenter
             }
-
 
             Text {
                 text: Qt.formatDateTime(new Date(), "dddd, d MMMM")
                 font.pixelSize: 16
-                color: Qt.rgba(255, 255, 255, 0.7)
+                color: Theme_Color.glassTextMuted
                 Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: 10
             }
-
 
             Image {
                 id: weatherIcon
@@ -78,7 +83,7 @@ Rectangle {
                 text: weatherRoot.temp
                 font.pixelSize: 120
                 font.weight: Font.ExtraLight
-                color: "white"
+                color: Theme_Color.glassText
                 Layout.alignment: Qt.AlignHCenter
             }
 
@@ -86,7 +91,7 @@ Rectangle {
                 text: weatherRoot.description
                 font.pixelSize: 22
                 font.letterSpacing: 1.1
-                color: "white"
+                color: Theme_Color.glassText
                 Layout.alignment: Qt.AlignHCenter
                 Layout.bottomMargin: 40
             }
@@ -96,7 +101,7 @@ Rectangle {
             Rectangle {
                 Layout.fillWidth: true
                 height: 1
-                color: Qt.rgba(255, 255, 255, 0.2)
+                color: Theme_Color.glassDivider
                 Layout.bottomMargin: 35
             }
 
@@ -111,14 +116,14 @@ Rectangle {
                         text: "HUMIDITY"
                         font.pixelSize: 12
                         font.weight: Font.Bold
-                        color: Qt.rgba(255, 255, 255, 0.5)
+                        color: Theme_Color.glassTextMuted
                         Layout.alignment: Qt.AlignHCenter
                     }
                     Text {
                         text: weatherRoot.humidity
                         font.pixelSize: 22
                         font.weight: Font.Medium
-                        color: "white"
+                        color: Theme_Color.glassText
                         Layout.alignment: Qt.AlignHCenter
                     }
                 }
@@ -126,7 +131,7 @@ Rectangle {
                 Rectangle {
                     width: 1
                     Layout.preferredHeight: 50
-                    color: Qt.rgba(255, 255, 255, 0.2)
+                    color: Theme_Color.glassDivider
                     Layout.alignment: Qt.AlignVCenter
                 }
 
@@ -137,14 +142,14 @@ Rectangle {
                         text: "WIND SPEED"
                         font.pixelSize: 12
                         font.weight: Font.Bold
-                        color: Qt.rgba(255, 255, 255, 0.5)
+                        color: Theme_Color.glassTextMuted
                         Layout.alignment: Qt.AlignHCenter
                     }
                     Text {
                         text: weatherRoot.windSpeed
                         font.pixelSize: 22
                         font.weight: Font.Medium
-                        color: "white"
+                        color: Theme_Color.glassText
                         Layout.alignment: Qt.AlignHCenter
                     }
                 }

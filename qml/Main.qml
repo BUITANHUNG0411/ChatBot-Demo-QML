@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import ChatBotDemo
 
 Window {
     id: root
@@ -16,7 +17,7 @@ Window {
         Rectangle {
             Layout.preferredWidth: 56
             Layout.fillHeight: true
-            color: chatBackend.isDarkMode ? "#1e293b" : "#f1f5f9"
+            color: Theme_Color.surface
 
             ColumnLayout {
                 anchors.fill: parent

@@ -16,34 +16,39 @@ Rectangle {
 
         model: ListModel {
             ListElement {
+                title: "Velocity"
+                icon: "../assets/velocity.svg"
+                index: 1
+            }
+            ListElement {
                 title: "Chat"
                 icon: "../assets/chat.svg"
-                index: 1
+                index: 2
             }
             ListElement {
                 title: "Note"
                 icon: "../assets/note.svg"
-                index: 2
+                index: 3
             }
             ListElement {
                 title: "Weather"
                 icon: "../assets/weather.svg"
-                index: 3
+                index: 4
             }
             ListElement {
                 title: "Map"
                 icon: "../assets/map.svg"
-                index: 4
+                index: 5
             }
             ListElement {
                 title: "Contact"
                 icon: "../assets/contact.svg"
-                index: 5
+                index: 6
             }
             ListElement {
                 title: "Music"
                 icon: "../assets/music.svg"
-                index: 6
+                index: 7
             }
         }
 

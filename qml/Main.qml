@@ -44,6 +44,25 @@ Window {
                     }
                 }
                 ToolButton {
+                    id: btnVelocity
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.preferredWidth: 44
+                    Layout.preferredHeight: 44
+                    hoverEnabled: true
+                    ToolTip.text: "Velocity"
+                    ToolTip.visible: hovered
+                    ToolTip.delay: 300
+                    onClicked: stackLayout.currentIndex = 1
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 22
+                        height: 22
+                        source: "../assets/velocity.svg"
+                        fillMode: Image.PreserveAspectFit
+                        smooth: true
+                    }
+                }
+                ToolButton {
                     id: btnChat
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
@@ -52,7 +71,7 @@ Window {
                     ToolTip.text: "Chat"
                     ToolTip.visible: hovered
                     ToolTip.delay: 300
-                    onClicked: stackLayout.currentIndex = 1
+                    onClicked: stackLayout.currentIndex = 2
                     contentItem: Image {
                         anchors.centerIn: parent
                         width: 22
@@ -71,7 +90,7 @@ Window {
                     ToolTip.text: "Note"
                     ToolTip.visible: hovered
                     ToolTip.delay: 300
-                    onClicked: stackLayout.currentIndex = 2
+                    onClicked: stackLayout.currentIndex = 3
                     contentItem: Image {
                         anchors.centerIn: parent
                         width: 22
@@ -90,7 +109,7 @@ Window {
                     ToolTip.text: "Weather"
                     ToolTip.visible: hovered
                     ToolTip.delay: 300
-                    onClicked: stackLayout.currentIndex = 3
+                    onClicked: stackLayout.currentIndex = 4
                     contentItem: Image {
                         anchors.centerIn: parent
                         width: 22
@@ -109,7 +128,7 @@ Window {
                     ToolTip.text: "Map"
                     ToolTip.visible: hovered
                     ToolTip.delay: 300
-                    onClicked: stackLayout.currentIndex = 4
+                    onClicked: stackLayout.currentIndex = 5
                     contentItem: Image {
                         anchors.centerIn: parent
                         width: 22
@@ -128,7 +147,7 @@ Window {
                     ToolTip.text: "Contact"
                     ToolTip.visible: hovered
                     ToolTip.delay: 300
-                    onClicked: stackLayout.currentIndex = 5
+                    onClicked: stackLayout.currentIndex = 6
                     contentItem: Image {
                         anchors.centerIn: parent
                         width: 22
@@ -147,7 +166,7 @@ Window {
                     ToolTip.text: "Music"
                     ToolTip.visible: hovered
                     ToolTip.delay: 300
-                    onClicked: stackLayout.currentIndex = 6
+                    onClicked: stackLayout.currentIndex = 7
                     contentItem: Image {
                         anchors.centerIn: parent
                         width: 22
@@ -177,6 +196,7 @@ Window {
             currentIndex: 0
 
             Home {}
+            Velocity {}
             Chatbot {}
             Note {}
             Weather {}

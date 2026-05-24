@@ -34,21 +34,26 @@ Rectangle {
     // Additional semantic colors used across components
     property color surfaceElevated:  isDark ? "#0f2f21" : "#ffffff"
     property color borderSubtle:      isDark ? "#334155" : "#cbd5e1"
-    property color accentMuted:     isDark ? Qt.rgba(74, 222, 128, 0.15) : Qt.rgba(34, 197, 94, 0.12)
-    property color surfaceOverlay:  isDark ? Qt.rgba(255, 255, 255, 0.05) : Qt.rgba(255, 255, 255, 0.4)
+    property color accentMuted:     isDark ? Qt.rgba(74/255, 222/255, 128/255, 0.15) : Qt.rgba(34/255, 197/255, 94/255, 0.12)
+    property color surfaceOverlay:  isDark ? Qt.rgba(255/255, 255/255, 255/255, 0.05) : Qt.rgba(255/255, 255/255, 255/255, 0.4)
 
     // Danger/destructive color (used in hover states)
     property color danger:         "#ef4444"
-    property color dangerMuted:    isDark ? Qt.rgba(127, 29, 29, 0.6) : Qt.rgba(254, 226, 226, 0.8)
+    property color dangerMuted:    isDark ? Qt.rgba(127/255, 29/255, 29/255, 0.6) : Qt.rgba(254/255, 226/255, 226/255, 0.8)
+
+    // Gauge/arc inactive segment color
+    property color gaugeInactive:   isDark ? Qt.rgba(74/255, 222/255, 128/255, 0.12) : Qt.rgba(34/255, 197/255, 94/255, 0.1)
+    // Gauge outer ring (always-on segments)
+    property color gaugeOuter:       isDark ? Qt.rgba(74/255, 222/255, 128/255, 0.25) : Qt.rgba(34/255, 197/255, 94/255, 0.2)
 
     // Weather view — gradient background
     property color weatherGradTop:  isDark ? "#0f3d1a" : "#166534"
     property color weatherGradBot:  isDark ? "#0f2a1a" : "#22c55e"
 
     // Weather view — glass container
-    property color glassSurface:    isDark ? Qt.rgba(15, 42, 26, 0.75) : Qt.rgba(255, 255, 255, 0.18)
-    property color glassBorder:     isDark ? Qt.rgba(74, 222, 128, 0.25) : Qt.rgba(255, 255, 255, 0.35)
-    property color glassDivider:    isDark ? Qt.rgba(74, 222, 128, 0.2)  : Qt.rgba(255, 255, 255, 0.2)
+    property color glassSurface:    isDark ? Qt.rgba(15/255, 42/255, 26/255, 0.75) : Qt.rgba(255/255, 255/255, 255/255, 0.18)
+    property color glassBorder:     isDark ? Qt.rgba(74/255, 222/255, 128/255, 0.25) : Qt.rgba(255/255, 255/255, 255/255, 0.35)
+    property color glassDivider:    isDark ? Qt.rgba(74/255, 222/255, 128/255, 0.2)  : Qt.rgba(255/255, 255/255, 255/255, 0.2)
     property color glassText:       "#ffffff"
-    property color glassTextMuted:  isDark ? Qt.rgba(209, 250, 229, 0.65) : Qt.rgba(255, 255, 255, 0.7)
+    property color glassTextMuted:  isDark ? Qt.rgba(209/255, 250/255, 229/255, 0.65) : Qt.rgba(255/255, 255/255, 255/255, 0.7)
 }

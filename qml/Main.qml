@@ -44,12 +44,12 @@ Window {
                     }
                 }
                 ToolButton {
-                    id: btnVelocity
+                    id: btnCluster
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
                     Layout.preferredHeight: 44
                     hoverEnabled: true
-                    ToolTip.text: "Velocity"
+                    ToolTip.text: "Cluster"
                     ToolTip.visible: hovered
                     ToolTip.delay: 300
                     onClicked: stackLayout.currentIndex = 1
@@ -57,7 +57,7 @@ Window {
                         anchors.centerIn: parent
                         width: 22
                         height: 22
-                        source: "../assets/velocity.svg"
+                        source: "../assets/cluster.svg"
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                     }
@@ -196,7 +196,7 @@ Window {
             currentIndex: 0
 
             Home {}
-            Velocity {}
+            Cluster {}
             Chatbot {}
             Note {}
             Weather {}

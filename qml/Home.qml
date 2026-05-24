@@ -16,8 +16,8 @@ Rectangle {
 
         model: ListModel {
             ListElement {
-                title: "Velocity"
-                icon: "../assets/velocity.svg"
+                title: "Cluster"
+                icon: "../assets/cluster.svg"
                 index: 1
             }
             ListElement {

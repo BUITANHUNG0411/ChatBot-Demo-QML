@@ -37,7 +37,8 @@ qt_add_qml_module(appChatBotDemo
         qml/Contact.qml
         qml/Music.qml
         qml/Note.qml
-        qml/Velocity/Velocity.qml
+        qml/Cluster/Cluster.qml
+        qml/Cluster/Watch.qml
     RESOURCES
         assets/rubbish.png
         assets/chat.svg
@@ -47,7 +48,7 @@ qt_add_qml_module(appChatBotDemo
         assets/contact.svg
         assets/music.svg
         assets/home.svg
-        assets/velocity.svg
+        assets/cluster.svg
 )
 
 target_include_directories(appChatBotDemo PRIVATE src)

@@ -24,11 +24,29 @@ Window {
                 anchors.topMargin: 16
 
                 ToolButton {
+                    id: btnHome
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.preferredWidth: 44
+                    Layout.preferredHeight: 44
+                    hoverEnabled: true
+                    ToolTip.text: "Home"
+                    ToolTip.visible: hovered
+                    ToolTip.delay: 300
+                    onClicked: stackLayout.currentIndex = 0
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 22
+                        height: 22
+                        source: "../assets/home.svg"
+                        fillMode: Image.PreserveAspectFit
+                        smooth: true
+                    }
+                }
+                ToolButton {
                     id: btnChat
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
                     Layout.preferredHeight: 44
-                    tooltip: "Chat"
                     hoverEnabled: true
                     ToolTip.text: "Chat"
                     ToolTip.visible: hovered
@@ -38,7 +56,7 @@ Window {
                         anchors.centerIn: parent
                         width: 22
                         height: 22
-                        source: "qrc:/ChatBotDemo/assets/chat.svg"
+                        source: "../assets/chat.svg"
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                     }
@@ -48,7 +66,6 @@ Window {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
                     Layout.preferredHeight: 44
-                    tooltip: "Note"
                     hoverEnabled: true
                     ToolTip.text: "Note"
                     ToolTip.visible: hovered
@@ -58,7 +75,7 @@ Window {
                         anchors.centerIn: parent
                         width: 22
                         height: 22
-                        source: "qrc:/ChatBotDemo/assets/note.svg"
+                        source: "../assets/note.svg"
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                     }
@@ -68,7 +85,6 @@ Window {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
                     Layout.preferredHeight: 44
-                    tooltip: "Weather"
                     hoverEnabled: true
                     ToolTip.text: "Weather"
                     ToolTip.visible: hovered
@@ -78,7 +94,7 @@ Window {
                         anchors.centerIn: parent
                         width: 22
                         height: 22
-                        source: "qrc:/ChatBotDemo/assets/weather.svg"
+                        source: "../assets/weather.svg"
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                     }
@@ -88,7 +104,6 @@ Window {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
                     Layout.preferredHeight: 44
-                    tooltip: "Map"
                     hoverEnabled: true
                     ToolTip.text: "Map"
                     ToolTip.visible: hovered
@@ -98,7 +113,7 @@ Window {
                         anchors.centerIn: parent
                         width: 22
                         height: 22
-                        source: "qrc:/ChatBotDemo/assets/map.svg"
+                        source: "../assets/map.svg"
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                     }
@@ -108,7 +123,6 @@ Window {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
                     Layout.preferredHeight: 44
-                    tooltip: "Contact"
                     hoverEnabled: true
                     ToolTip.text: "Contact"
                     ToolTip.visible: hovered
@@ -118,7 +132,7 @@ Window {
                         anchors.centerIn: parent
                         width: 22
                         height: 22
-                        source: "qrc:/ChatBotDemo/assets/contact.svg"
+                        source: "../assets/contact.svg"
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                     }
@@ -128,7 +142,6 @@ Window {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.preferredWidth: 44
                     Layout.preferredHeight: 44
-                    tooltip: "Music"
                     hoverEnabled: true
                     ToolTip.text: "Music"
                     ToolTip.visible: hovered
@@ -138,7 +151,7 @@ Window {
                         anchors.centerIn: parent
                         width: 22
                         height: 22
-                        source: "qrc:/ChatBotDemo/assets/music.svg"
+                        source: "../assets/music.svg"
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                     }

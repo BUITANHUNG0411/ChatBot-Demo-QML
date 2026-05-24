@@ -36,6 +36,13 @@ qt_add_qml_module(appChatBotDemo
         qml/Note.qml
     RESOURCES
         assets/rubbish.png
+        assets/chat.svg
+        assets/note.svg
+        assets/weather.svg
+        assets/map.svg
+        assets/contact.svg
+        assets/music.svg
+        assets/home.svg
 )
 
 target_include_directories(appChatBotDemo PRIVATE src)

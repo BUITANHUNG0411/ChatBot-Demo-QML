@@ -16,32 +16,32 @@ Rectangle {
         model: ListModel {
             ListElement {
                 title: "Chat"
-                icon: "qrc:/ChatBotDemo/assets/chat.svg"
+                icon: "../assets/chat.svg"
                 index: 1
             }
             ListElement {
                 title: "Note"
-                icon: "qrc:/ChatBotDemo/assets/note.svg"
+                icon: "../assets/note.svg"
                 index: 2
             }
             ListElement {
                 title: "Weather"
-                icon: "qrc:/ChatBotDemo/assets/weather.svg"
+                icon: "../assets/weather.svg"
                 index: 3
             }
             ListElement {
                 title: "Map"
-                icon: "qrc:/ChatBotDemo/assets/map.svg"
+                icon: "../assets/map.svg"
                 index: 4
             }
             ListElement {
                 title: "Contact"
-                icon: "qrc:/ChatBotDemo/assets/contact.svg"
+                icon: "../assets/contact.svg"
                 index: 5
             }
             ListElement {
                 title: "Music"
-                icon: "qrc:/ChatBotDemo/assets/music.svg"
+                icon: "../assets/music.svg"
                 index: 6
             }
         }

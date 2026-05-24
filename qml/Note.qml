@@ -123,7 +123,7 @@ Rectangle {
                 }
 
 
-                
+
                 contentItem: Text {
                     text: filterCombo.currentText
                     font {

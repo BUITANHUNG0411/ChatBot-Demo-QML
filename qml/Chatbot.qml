@@ -4,7 +4,7 @@ import QtQuick.Layouts
 
 Item {
     id: chatViewRoot
-    
+
     RowLayout {
         anchors.fill: parent
         spacing: 0

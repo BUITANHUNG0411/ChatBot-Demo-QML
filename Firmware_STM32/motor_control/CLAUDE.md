@@ -14,3 +14,10 @@ This project uses STM32CubeMX. The files inside `Core/Src`, `Core/Inc`, and `USB
 3. If you need to add a new function, declare it in `/* USER CODE BEGIN PFP */` and define it in `/* USER CODE BEGIN 4 */`.
 4. If you need to include a header, put it in `/* USER CODE BEGIN Includes */`.
 5. DO NOT auto-format the whole file. Only format the exact lines you write.
+
+## Automation & Workflow (Autonomous Execution)
+You are authorized to execute tasks autonomously. For every step in `TASKS.md`, you must follow this strict loop:
+1. **Understand & Implement:** Read the task, consult `RULES.md`, and write the code adhering STRICTLY to the CubeMX block rules.
+2. **Auto-Build:** IMMEDIATELY run the build command: `cmake --build build -j$(sysctl -n hw.ncpu)`.
+3. **Auto-Fix:** If the build fails, analyze the compiler errors, fix the code, and rebuild. Do not ask for user permission to fix your own errors. Loop this step until the build passes.
+4. **Verify & Check-off:** Only when the build is 100% successful, mark the task as `[x]` in `TASKS.md` and report the outcome to the user.

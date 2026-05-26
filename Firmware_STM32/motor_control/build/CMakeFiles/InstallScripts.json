@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/hcmutboiz/mock/Dashboard/Firmware_STM32/motor_control/build/cmake_install.cmake",
+		"/Users/hcmutboiz/mock/Dashboard/Firmware_STM32/motor_control/build/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

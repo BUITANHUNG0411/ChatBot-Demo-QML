@@ -94,7 +94,10 @@ uint8_t UserRxBufferFS[APP_RX_DATA_SIZE];
 uint8_t UserTxBufferFS[APP_TX_DATA_SIZE];
 
 /* USER CODE BEGIN PRIVATE_VARIABLES */
-
+#define CDC_TX_BUFFER_SIZE  256
+static uint8_t cdc_tx_buffer[CDC_TX_BUFFER_SIZE];
+static uint16_t cdc_tx_head = 0;
+static uint16_t cdc_tx_tail = 0;
 /* USER CODE END PRIVATE_VARIABLES */
 
 /**
@@ -127,7 +130,7 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length);
 static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
 
 /* USER CODE BEGIN PRIVATE_FUNCTIONS_DECLARATION */
-
+int __io_putchar(int ch);
 /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
 
 /**
@@ -291,7 +294,40 @@ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
 }
 
 /* USER CODE BEGIN PRIVATE_FUNCTIONS_IMPLEMENTATION */
+int __io_putchar(int ch)
+{
+  if (ch == '\n') {
+    __io_putchar('\r');
+  }
 
+  uint16_t next = (cdc_tx_head + 1) % CDC_TX_BUFFER_SIZE;
+  if (next != cdc_tx_tail) {
+    cdc_tx_buffer[cdc_tx_head] = (uint8_t)ch;
+    cdc_tx_head = next;
+  }
+
+  return ch;
+}
+
+void CDC_Flush_Tx(void)
+{
+  if (cdc_tx_head == cdc_tx_tail) return;
+
+  USBD_CDC_HandleTypeDef *hcdc = (USBD_CDC_HandleTypeDef*)hUsbDeviceFS.pClassData;
+  if (hcdc->TxState != 0) return;
+
+  uint16_t count = 0;
+  uint8_t local_buf[CDC_TX_BUFFER_SIZE];
+  while (cdc_tx_tail != cdc_tx_head && count < CDC_TX_BUFFER_SIZE) {
+    local_buf[count++] = cdc_tx_buffer[cdc_tx_tail];
+    cdc_tx_tail = (cdc_tx_tail + 1) % CDC_TX_BUFFER_SIZE;
+  }
+
+  if (count > 0) {
+    USBD_CDC_SetTxBuffer(&hUsbDeviceFS, local_buf, count);
+    USBD_CDC_TransmitPacket(&hUsbDeviceFS);
+  }
+}
 /* USER CODE END PRIVATE_FUNCTIONS_IMPLEMENTATION */
 
 /**

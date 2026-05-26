@@ -1,0 +1,9 @@
+❯ Please read carefully @CLAUDE.md , @RULES.md and @TASKS.md
+  I want to start executing the project roadmap autonomously.
+  EXECUTION RULES:
+  1. Following the exact loop defined in @CLAUDE.md (Auto-Build->Auto-Fix->Verify)
+  2. DO NOT execute all phases at once. This is critical.
+  3. You must complete phase 1 first. Ensure the CMake build is 100% successfully.
+  4. Once phase 1 is built successfully, tick to the checkbox of the tasks in @TASKS.md , PAUSE and notify to me before executing phase 2 
+  5. Wait for my expilicit command before writting any code for the next phase.                                                                                                 
+  Please acknowledge these instructions and start working on Phase 1 now.     
